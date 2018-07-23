@@ -4,12 +4,12 @@ class Application
 def call(env)
   resp = Rack::Response.new
   req = Rack::Request.new(env)
-  @returned = nil
+
   if req.path.include?("/items/")
       #binding.pry
-      Item.all.each do |item|
+      Item.find do |item|
         if req.path == "/items/#{item.name}"
-          @returned = resp.write "#{item.price}"
+          resp.write "#{item.price}"
         end
       end
     end
