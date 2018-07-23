@@ -5,12 +5,13 @@ def call(env)
   resp = Rack::Response.new
   req = Rack::Request.new(env)
 
-
+    if Item.all
     Item.all.each do |item|
       if req.path == "/item/#{item.name}"
       @returned = resp.write "#{item.price}"
       end
     end
+  end
     binding.pry
     if !@returned
       resp.write "Route not found"
