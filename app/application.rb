@@ -5,6 +5,7 @@ def call(env)
   resp = Rack::Response.new
   req = Rack::Request.new(env)
     Item.all.each do |item|
+      binding.pry
       if req.path == "/item/#{item.name}"
         resp.write "#{item.price}"
       end
