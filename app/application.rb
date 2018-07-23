@@ -6,7 +6,14 @@ def call(env)
   @@items = []
   if req.path.include?"/items/"
     Item.all.each do |item|
-      @@items << item.name
       if req.path == "/item/#{item.name}"
         resp.write "#{item.price}"
+      end
+    end
+  else
+    resp.write "Item not found"
+    resp.status = 404
+  end
+end
+
 end
