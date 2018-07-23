@@ -7,11 +7,11 @@ def call(env)
   @@items = Item.all
 
     Item.all.each do |item|
-
       if req.path == "/item/#{item.name}"
       @returned = resp.write "#{item.price}"
       end
     end
+    binding.pry
     if !@returned
       resp.write "Route not found"
       resp.status = 404
