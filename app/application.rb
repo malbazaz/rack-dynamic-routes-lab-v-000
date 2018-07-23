@@ -4,10 +4,10 @@ class Application
 def call(env)
   resp = Rack::Response.new
   req = Rack::Request.new(env)
-  @@items = []
+  @@item = []
     if req.path.include?("/item/")
-      @@items = Item.all
-      @@items.each do |item|
+      @@item = Item.all
+      @@item.each do |item|
         if req.path == "/item/#{item.name}"
           @returned = resp.write "#{item.price}"
         end
