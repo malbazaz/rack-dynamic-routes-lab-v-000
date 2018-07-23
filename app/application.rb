@@ -7,13 +7,13 @@ def call(env)
     Item.all.each do |item|
       #binding.pry
       if req.path == "/item/#{item.name}"
-        resp.write "#{item.price}"
+      @returned = resp.write "#{item.price}"
       end
-
     end
-    if
-    resp.write "Route not found"
-    resp.status = 404
+    if !@returned
+      resp.write "Route not found"
+      resp.status = 404
+    end
   end
 
 
