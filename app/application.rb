@@ -6,7 +6,7 @@ def call(env)
   req = Rack::Request.new(env)
 
   if req.path.include?("/items/")
-      binding.pry
+      #binding.pry
       specific_item = req.path.gsub("/items/", "")
       if items = Item.all.find {|item| item.name == (specific_item)}
             resp.write "#{items.price}"
