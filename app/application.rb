@@ -6,8 +6,8 @@ def call(env)
   req = Rack::Request.new(env)
   @@items = []
     if req.path.include?("/item/")
-      @@item = Item.all
-      @@item.each do |item|
+      @@items = Item.all
+      @@items.each do |item|
         if req.path == "/item/#{item.name}"
           @returned = resp.write "#{item.price}"
         end
