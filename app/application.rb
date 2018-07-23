@@ -8,7 +8,7 @@ def call(env)
   if req.path.include?("/items/")
       binding.pry
       Item.all.find do |item|
-        if req.path.include?("#{}")
+        #if req.path.include?("#{}")
         if req.path == "/items/#{item.name}"
           resp.write "#{item.price}"
         end
