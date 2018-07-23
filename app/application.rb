@@ -5,7 +5,7 @@ def call(env)
   resp = Rack::Response.new
   req = Rack::Request.new(env)
   @@items = Item.all
-binding.pry
+
     Item.all.each do |item|
 
       if req.path == "/item/#{item.name}"
