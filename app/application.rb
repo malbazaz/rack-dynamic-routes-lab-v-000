@@ -12,7 +12,7 @@ def call(env)
       end
     end
   end
-    binding.pry
+    #binding.pry
     if !@returned
       resp.write "Route not found"
       resp.status = 404
