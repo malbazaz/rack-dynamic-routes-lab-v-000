@@ -4,7 +4,7 @@ class Application
 def call(env)
   resp = Rack::Response.new
   req = Rack::Request.new(env)
-  @returned = nil 
+  @returned = nil
   if req.path.include?("/items/")
       #binding.pry
       Item.all.each do |item|
