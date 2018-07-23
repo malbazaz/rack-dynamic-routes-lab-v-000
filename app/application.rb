@@ -6,8 +6,9 @@ def call(env)
   req = Rack::Request.new(env)
 
   if req.path.include?("/items/")
-      #binding.pry
-      Item.find do |item|
+      binding.pry
+      Item.all.find do |item|
+        if req.path.include?("#{}")
         if req.path == "/items/#{item.name}"
           resp.write "#{item.price}"
         end
