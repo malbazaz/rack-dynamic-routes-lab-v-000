@@ -4,11 +4,11 @@ class Application
 def call(env)
   resp = Rack::Response.new
   req = Rack::Request.new(env)
-  @@items = []
+
 
       binding.pry
-      @@items = Item.all
-      @@items.each do |item|
+
+      Item.all.each do |item|
         if req.path == "/item/#{item.name}"
           @returned = resp.write "#{item.price}"
         end
