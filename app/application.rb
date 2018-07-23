@@ -7,15 +7,15 @@ def call(env)
 
   if req.path.include?("/items/")
       binding.pry
-      Item.all.find do |item|
-        #if req.path.include?("#{}")
-        if req.path == "/items/#{item.name}"
-          resp.write "#{item.price}"
-        end
+      specific_item = req.path.gsub("/items/", "")
+      if items = Item.all.find {|item| item.name == (specific_item)}
+            resp.write "#{items.price}"
+      else
+        resp.write "Route not found"
+        resp.status = 404
       end
-    end
-    #binding.pry
-    if !@returned
+
+    else
       resp.write "Route not found"
       resp.status = 404
     end
