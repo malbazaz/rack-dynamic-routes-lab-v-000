@@ -13,7 +13,7 @@ def call(env)
           @returned = resp.write "#{item.price}"
         end
       end
-
+    end
     #binding.pry
     if !@returned
       resp.write "Route not found"
