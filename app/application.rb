@@ -11,7 +11,7 @@ def call(env)
       if items = Item.all.find {|item| item.name == (specific_item)}
             resp.write "#{items.price}"
       else
-        resp.write "Route not found"
+        resp.write "Item not found"
         resp.status = 404
       end
 
