@@ -15,6 +15,4 @@ def call(env)
       resp.status = 404
     end
   end
-
-
 end
