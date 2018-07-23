@@ -4,7 +4,7 @@ class Application
 def call(env)
   resp = Rack::Response.new
   req = Rack::Request.new(env)
-  @@items = Item.all
+
 
     Item.all.each do |item|
       if req.path == "/item/#{item.name}"
